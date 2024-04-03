@@ -1,0 +1,35 @@
+body {
+    background-color: turquoise;
+    margin: 0;
+}
+
+main {
+    background-color: turquoise;
+    margin-left: 1em;
+}
+
+nav {
+    background-color: darkcyan;
+    padding: 1em;
+}
+
+nav button {
+    background-color: darkgray;
+}
+
+button {
+    padding: 1em;
+    margin: 1em;
+}
+
+:focus-visible {
+    outline: solid .3em red;
+}
+
+ul {
+    display: flex;
+}
+
+li {
+    list-style: none;
+}
