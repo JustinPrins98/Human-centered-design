@@ -6,41 +6,105 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Prototype-1</title>
     <link rel="stylesheet" href="./styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap"
+        rel="stylesheet">
 </head>
 
 <body>
     <nav>
-        <h1 tabindex="0"> Kledingkast</h1>
+        <h1> Kledingkast</h1>
         <button aria-label="Kleding toevoegen"></button>
         <button aria-label="kleding verwijderen"></button>
     </nav>
     <main>
-        <h2 tabindex="0"> Met wat voor kledingstuk wil je beginnen?</h2>
 
-        <ul>
-            <li>
-                <button aria-label="Tops en shirts">Tops en shirts</button>
-            </li>
-            <li>
-                <button aria-label="Truien en sweaters">Truien en sweaters</button>
-            </li>
-            <li>
-                <button aria-label="Broeken">Broeken</button>
-            </li>
-            <li>
-                <button aria-label="Jurken en rokken">Jurken en rokken</button>
-            </li>
-            <li>
-                <button aria-label="Schoenen">Schoenen</button>
-            </li>
-            <li>
-                <button aria-label="Jassen en jackets">Jassen en jackets</button>
-            </li>
-            <li>
-                <button aria-label="Assecoires">Accessoires</button>
-            </li>
-        </ul>
+        <fieldset>
+            <legend> Met welk gedeelte wil je beginnen een kledingstuk uit te kiezen? </legend>
+            <input type="radio" name="deelkleding" id="bovenkleding" value="bovenkleding"
+                data-showFieldset="fieldsetBovenKleding" data-hideFieldset="fieldsetOnderKleding fieldsetOndergoed">
+            <label for="bovenkleding">Bovenkleding </label>
+
+            <input type="radio" name="deelkleding" id="onderkleding" value="onderkleding"
+                data-showFieldset="fieldsetOnderKleding" data-hideFieldset="fieldsetOndergoed fieldsetBovenKleding">
+            <label for="onderkleding"> onderkleding </label>
+
+            <input type="radio" name="deelkleding" id="ondergoed" value="ondergoed"
+                data-showFieldset="fieldsetOndergoed" data-hideFieldset="fieldsetOnderKleding fieldsetBovenKleding">
+            <label for="ondergoed"> Ondergoed </label>
+        </fieldset>
+
+        <!------------>
+        <!-- Laag 2 -->
+        <!------------>
+
+        <fieldset id="fieldsetBovenKleding" class="hidden">
+            <legend>Wat voor kledingstuk wil je aantrekken?</legend>
+            <input type="radio" name="bovenkleding" id="topje" value="topje">
+            <label for="topje"> Topje </label>
+
+            <input type="radio" name="bovenkleding" id="shirt" value="shirt">
+            <label for="shirt"> Shirt </label>
+
+            <input type="radio" name="bovenkleding" id="Blouse" value="Blouse">
+            <label for="Blouse"> Blouse </label>
+
+            <input type="radio" name="bovenkleding" id="trui" value="trui">
+            <label for="trui"> Trui </label>
+
+            <input type="radio" name="bovenkleding" id="vest" value="vest">
+            <label for="vest"> Vest </label>
+
+            <input type="radio" name="bovenkleding" id="Jas" value="Jas">
+            <label for="Jas"> Jas </label>
+
+        </fieldset>
+
+        <fieldset id="fieldsetOnderKleding" class="hidden">
+            <legend>Wat voor kledingstuk wil je aantrekken?</legend>
+            <input type="radio" name="broek" id="broek" value="broek">
+            <label for="broek"> broek </label>
+        </fieldset>
+
+        <fieldset id="fieldsetOndergoed" class="hidden">
+            <legend>Wat voor kledingstuk wil je aantrekken?</legend>
+            <input type="radio" name="ondergoed" id="ondergoed" value="ondergoed">
+            <label for="ondergoed"> ondergoed </label>
+        </fieldset>
+
+        <!------------>
+        <!-- Laag 3 -->
+        <!------------>
+
+        <fieldset>
+            <legend>Welke kleur of kleuren wil je aan hebben vandaag??</legend>
+
+            <input type="checkbox" id="wit" name="wit">
+            <label for="wit"> wit </label>
+
+            <input type="checkbox" id="zwart" name="zwart">
+            <label for="zwart"> zwart </label>
+
+            <input type="checkbox" id="grijs" name="grijs">
+            <label for="grijs"> grijs </label>
+
+            <input type="checkbox" id="rood" name="rood">
+            <label for="rood"> rood </label>
+
+            <input type="checkbox" id="oranje" name="oranje">
+            <label for="oranje"> oranje </label>
+
+            <input type="checkbox" id="geel" name="geel">
+            <label for="geel"> geel </label>
+        </fieldset>
+
+
+
+
+
     </main>
+
 
 
 

@@ -1,35 +1,46 @@
-body {
-    background-color: turquoise;
-    margin: 0;
+.javascript .hidden {
+    display: none;
 }
 
-main {
-    background-color: turquoise;
-    margin-left: 1em;
+fieldset {
+    border: none;
+}
+
+:root {
+    --bgcolor: rgb(19, 19, 19);
+    --navcolor: rgb(45, 45, 45);
+    --fontcolor: rgb(51, 255, 51);
+    --fontfam: "Space Mono", monospace;
 }
 
 nav {
-    background-color: darkcyan;
-    padding: 1em;
+    background-color: var(--navcolor);
 }
 
-nav button {
-    background-color: darkgray;
-}
-
-button {
-    padding: 1em;
+body {
+    background-color: var(--bgcolor);
     margin: 1em;
 }
 
+label,
+legend {
+    color: var(--fontcolor);
+    font-family: "Space Mono", monospace;
+    font-family: var(--fontfam);
+}
+
+h1,
+h2 {
+    color: var(--fontcolor);
+    font-family: var(--fontfam);
+}
+
+button {
+    height: 3em;
+    width: 3em;
+    background-color: var(--fontcolor);
+}
+
 :focus-visible {
-    outline: solid .3em red;
-}
-
-ul {
-    display: flex;
-}
-
-li {
-    list-style: none;
+    outline: solid rgb(255, 176, 0) .3em;
 }
