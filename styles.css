@@ -6,12 +6,18 @@ fieldset {
     border: none;
 }
 
+
+
 :root {
     --bgcolor: rgb(19, 19, 19);
     --navcolor: rgb(45, 45, 45);
     --fontcolor: rgb(51, 255, 51);
     --fontfam: "Space Mono", monospace;
+    --nvda-pitch: normal;
 }
+
+/* Apply pitch styles */
+
 
 nav {
     background-color: var(--navcolor);

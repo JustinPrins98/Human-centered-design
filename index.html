@@ -13,12 +13,13 @@
 </head>
 
 <body>
-    <nav>
-        <h1> Kledingkast</h1>
+    <!-- <nav>
         <button aria-label="Kleding toevoegen"></button>
         <button aria-label="kleding verwijderen"></button>
-    </nav>
+    </nav> -->
     <main>
+        <h1> Kledingkast</h1>
+
 
         <fieldset>
             <legend> Met welk gedeelte wil je beginnen een kledingstuk uit te kiezen? </legend>
@@ -92,23 +93,45 @@
             <input type="checkbox" id="rood" name="rood">
             <label for="rood"> rood </label>
 
-            <input type="checkbox" id="oranje" name="oranje">
+            <input type="checkbox" id="oranje" name="oranje" data-showFieldset="oranjeTopjes">
             <label for="oranje"> oranje </label>
 
             <input type="checkbox" id="geel" name="geel">
             <label for="geel"> geel </label>
         </fieldset>
 
+        <!------------>
+        <!-- Laag 4 -->
+        <!------------>
 
+        <fieldset id="oranjeTopjes" class="hidden">
+            <legend>Overzicht van oranje topjes</legend>
+            <input type="radio" name="topje" id="topjeOranje1" value="topjeOranje1" data-showFieldset="MatchOranjeTop">
+            <label for="topjeOranje1"> Oranje top met V hals, lange mouwen en gemaakt van katoen.</label>
 
+            <input type="radio" name="topje" id="topjeOranje2" value="topjeOranje2">
+            <label for="topjeOranje2"> Oranje top met V hals, korte mouwenn, twee knopen verticaal rondom de navel en
+                gemaakt van polyester</label>
+
+            <input type="radio" name="topje" id="topjeOranje3" value="topjeOranje3">
+            <label for="topjeOranje3"> Oranje top met O hals, geen mouwen, ruche patroon aan de onderkant van het topje
+                en gemaakt van zijde</label>
+        </fieldset>
+
+        <fieldset id="MatchOranjeTop" class="hidden">
+            <legend>Kleding dat matched met het oranje topje</legend>
+            <input type="radio" name="match" id="match1" value="match1">
+            <label for="match1"> Zwart polyester straight flair broek </label>
+
+            <input type="radio" name="match" id="match2" value="match2">
+            <label for="match2"> blauwe skinny jeans met gaten.</label>
+
+            <input type="radio" name="match" id="match3" value="match3">
+            <label for="match3"> Zwart rokje tot knieën van het materiaal corduroy</label>
+        </fieldset>
 
 
     </main>
-
-
-
-
-
     <script src="./script.js"></script>
 </body>
 

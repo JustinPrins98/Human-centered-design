@@ -1,7 +1,7 @@
 document.addEventListener("DOMContentLoaded", function () {
     document.documentElement.classList.add('javascript');
 
-    document.querySelectorAll('input[type=radio][data-showfieldset]').forEach(function (showHide) {
+    document.querySelectorAll('input[type=radio][data-showfieldset], input[type=checkbox][data-showfieldset]').forEach(function (showHide) {
         const targetFieldsetId = showHide.dataset.showfieldset;
         const targetFieldset = document.getElementById(targetFieldsetId);
 
@@ -16,7 +16,8 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     });
 
-    document.querySelectorAll('input[type=radio][data-hidefieldset]').forEach(function (showHide) {
+
+    document.querySelectorAll('input[type=radio][data-hidefieldset], input[type=checkbox][data-hidefieldset]').forEach(function (showHide) {
         const targetFieldsetIds = showHide.dataset.hidefieldset.split(' ');
         targetFieldsetIds.forEach(function (targetFieldsetId) {
             const targetFieldset = document.getElementById(targetFieldsetId);
@@ -32,6 +33,7 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     });
 });
+
 
 // function toggleShirtList() {
 //     var newList = document.getElementById("shirtList");
