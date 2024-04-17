@@ -34,6 +34,39 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 });
 
+document.addEventListener("DOMContentLoaded", function () {
+    // Get the search input element
+    const searchInput = document.getElementById("zoeken");
+
+    // Get the section with the hidden items
+    const hiddenSection = document.querySelector("section.hidden");
+
+    // Get all the buttons inside the hidden section
+    const buttons = hiddenSection.querySelectorAll("button");
+
+    // Add event listener for input event on search input
+    searchInput.addEventListener("input", function () {
+        const searchText = searchInput.value.toLowerCase().trim(); // Get the search text, trim whitespace, and convert to lowercase
+
+        // Iterate over all buttons in the hidden section
+        buttons.forEach(function (button) {
+            const buttonText = button.textContent.toLowerCase(); // Get the text content of the button, convert to lowercase
+            if (buttonText.includes(searchText)) {
+                hiddenSection.classList.remove("hidden"); // Show the hidden section
+                button.classList.remove("hidden"); // Show the button containing the matching text
+            } else {
+                button.classList.add("hidden"); // Hide the button if it does not match the search text
+            }
+        });
+
+        // Hide the hidden section if no match is found
+        if (!hiddenSection.querySelector("button:not(.hidden)")) {
+            hiddenSection.classList.add("hidden");
+        }
+    });
+});
+
+
 
 // function toggleShirtList() {
 //     var newList = document.getElementById("shirtList");

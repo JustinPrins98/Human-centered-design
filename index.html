@@ -13,14 +13,14 @@
 </head>
 
 <body>
-    <!-- <nav>
-        <button aria-label="Kleding toevoegen"></button>
-        <button aria-label="kleding verwijderen"></button>
-    </nav> -->
-    <main>
-        <h1 speak> Kledingkast</h1>
+    <nav>
+        <h1> Kledingkast</h1>
+        <label for="zoeken">Zoek naar kledingstuk</label>
+        <input type="search" id="zoeken" name="zoeken" placeholder="Vul hier een kledingstuk in"
+            aria-label="Zoeken naar kledingstuk">
+    </nav>
 
-
+    <form>
         <fieldset>
             <legend> Met welk gedeelte wil je beginnen een kledingstuk uit te kiezen? </legend>
             <input type="radio" name="deelkleding" id="bovenkleding" value="bovenkleding"
@@ -130,8 +130,14 @@
             <label for="match3"> Zwart rokje tot knieën van het materiaal corduroy</label>
         </fieldset>
 
+        <section class="hidden">
+            <button> zwart shirt </button>
+            <button> rode broek </button>
+            <button> paarse trui </button>
+        </section>
 
-    </main>
+
+    </form>
     <script src="./script.js"></script>
 </body>
 
