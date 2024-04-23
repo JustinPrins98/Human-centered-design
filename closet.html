@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="nl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Virtuele Kledingkast</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        /* Stijl voor knopachtige h2 */
+        h2.button {
+            font-size: 1.2em;
+            background-color: #f0f0f0;
+            border: none;
+            cursor: pointer;
+            padding: 10px;
+            width: 100%;
+            text-align: left;
+            outline: none;
+        }
+
+        h2.button:focus {
+            /* Focusstijl toevoegen voor toegankelijkheid */
+            background-color: #d0d0d0;
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+            display: none;
+            /* Lijsten standaard verbergen */
+        }
+
+        li {
+            margin-bottom: 5px;
+        }
+
+        button {
+            background: none;
+            border: none;
+            cursor: pointer;
+            font-size: inherit;
+            color: inherit;
+            text-align: left;
+        }
+
+        input[type="text"] {
+            width: calc(100% - 80px);
+            /* Breedte aanpassen om ruimte te maken voor knoppen */
+            padding: 5px;
+            margin-bottom: 5px;
+        }
+
+        .add-item-btn {
+            width: 60px;
+            /* Breedte aanpassen */
+            margin-left: 10px;
+        }
+
+        .hidden {
+            position: absolute;
+            left: -9999px;
+            width: 1px;
+            height: 1px;
+            overflow: hidden;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Mijn Virtuele Kledingkast</h1>
+    <nav>
+        <a href="./Home.html" class="button" aria-label="Ga terug naar de home pagina" tabindex="0">Ga terug naar de
+            home page
+        </a>
+    </nav>
+
+    <!-- Bovenlichaamsectie -->
+    <section>
+        <h2 class="button" role="button" tabindex="0" onclick="toggleVisibility('upper-body-items')"
+            onkeypress="handleKeyPress(event, 'upper-body-items')" onfocus="playAudioAndStopOthers('audio3')">
+        </h2>
+
+        <ul id="upper-body-items" role="presentation">
+            <li><button onfocus="playAudioAndStopOthers('audio1')" onblur="stopAudio()"></button>
+            </li>
+            <li><button aria-label="Blauwe Trui">Blauwe Trui</button></li>
+            <li><button aria-label="Groene Jas">Groene Jas</button></li>
+        </ul>
+    </section>
+
+    <!-- Onderlichaamsectie -->
+    <section>
+        <h2 class="button" role="button" tabindex="0" onclick="toggleVisibility('lower-body-items')"
+            onkeypress="handleKeyPress(event, 'lower-body-items')" onfocus="playAudioAndStopOthers('audio4')"></h2>
+        <ul id="lower-body-items" aria-label="Items voor onderlichaam">
+            <li><button aria-label="Zwarte Broek">Zwarte
+                    Broek</button></li>
+            <li><button aria-label="Witte Rok">Witte
+                    Rok</button></li>
+            <li><button aria-label="Grijze Joggingbroek">Grijze Joggingbroek</button></li>
+        </ul>
+    </section>
+
+    <!-- Ondergoedsectie -->
+    <section>
+        <h2 class="button" role="button" tabindex="0" onclick="toggleVisibility('underwear-items')"
+            onkeypress="handleKeyPress(event, 'underwear-items')" onfocus="playAudioAndStopOthers('audio2')">
+        </h2>
+        <ul id="underwear-items" aria-label="Ondergoed items">
+            <li><button aria-label="Paarse Boxers">Paarse Boxers</button></li>
+            <li><button aria-label="Grijze slip">Grijze
+                    Slip</button></li>
+        </ul>
+    </section>
+
+    <!-- Invoerveld toevoegen -->
+    <div>
+        <label for="item-input">Kleding toevoegen:</label>
+        <input type="text" id="item-input" aria-label="Kleding toevoegen" placeholder="Voer itemnaam in">
+        <button class="add-item-btn" onclick="addItem()">Toevoegen</button>
+    </div>
+
+    <!-- Audio-elementen -->
+    <audio id="audio1" preload="auto">
+        <source src="./mp3-files/U staat nu op een ro.wav" type="audio/wav">
+    </audio>
+    <audio id="audio2" preload="auto">
+        <source src="./mp3-files/Ondergoed.wav" type="audio/wav">
+    </audio>
+    <audio id="audio3" preload="auto">
+        <source src="./mp3-files/David Attenborough's bovenlichaam.mp3" type="audio/mp3">
+    </audio>
+    <audio id="audio4" preload="auto">
+        <source src="./mp3-files/David Attenborough's onderlichaam.mp3" type="audio/mp3">
+    </audio>
+
+    <div class="hidden" aria-hidden="true" aria-live="polite">
+        <!-- Hidden element for announcing selected items -->
+    </div>
+
+    <script>
+        var activeAudio = null;
+
+        function toggleVisibility(itemId) {
+            var itemsList = document.getElementById(itemId);
+            if (itemsList.style.display === 'none' || itemsList.style.display === '') {
+                itemsList.style.display = 'block';
+            } else {
+                itemsList.style.display = 'none';
+            }
+        }
+
+        function playAudio(audioId) {
+            var audio = document.getElementById(audioId);
+            if (audio.paused) {
+                audio.play();
+            } else {
+                audio.pause();
+                audio.currentTime = 0;
+            }
+            activeAudio = audio;
+        }
+
+        function stopAudio() {
+            if (activeAudio) {
+                activeAudio.pause();
+                activeAudio.currentTime = 0;
+                activeAudio = null;
+            }
+        }
+
+        function playAudioAndStopOthers(audioId) {
+            if (activeAudio) {
+                stopAudio();
+            }
+            playAudio(audioId);
+        }
+
+        function addItem() {
+            var inputField = document.getElementById('item-input');
+            var itemName = inputField.value.trim();
+            if (itemName !== '') {
+                // Bepaal welke sectie momenteel open is
+                var openSection = document.querySelector('section:not([style="display: none;"])');
+                if (openSection) {
+                    var itemsList = openSection.querySelector('ul');
+                    var newItem = document.createElement('li');
+                    newItem.innerHTML = '<button aria-label="' + itemName + '" onfocus="playAudioAndStopOthers(\'audio9\')" onblur="stopAudio()">'
+                        + itemName + '</button>';
+                    itemsList.appendChild(newItem);
+                    inputField.value = ''; // Invoerveld leegmaken na toevoegen van het item
+                }
+            }
+        }
+
+        function announce(item) {
+            var announceElement = document.querySelector('.hidden');
+            announceElement.textContent = 'Geselecteerd item: ' + item;
+        }
+
+        function handleKeyPress(event, itemId) {
+            if (event.key === 'Enter') {
+                toggleVisibility(itemId);
+            }
+        }
+    </script>
+</body>
+
+</html>
