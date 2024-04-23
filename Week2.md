@@ -24,6 +24,7 @@ Bij de beschrijving van een glitter shirt werden bijvoorbeeld glitter geluiden g
 - 'Hoe krijg je de kleding erin' Dit was nog wel een ding om over na te denken aangezien bij de meeste prototypes er al vanuit werd gegaan 
 dat de kleding erin stond.
 
+
 ## Feedback
 
 Ik wilde voor nonsense graag de toonhoogte van de NVDA screenreader aanpassen bij specefieke stukjes tekst, dit was helaas niet mogelijk.
