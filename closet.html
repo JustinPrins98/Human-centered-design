@@ -85,11 +85,12 @@
     <!-- Bovenlichaamsectie -->
     <section>
         <h2 class="button" role="button" tabindex="0" onclick="toggleVisibility('upper-body-items')"
-            onkeypress="handleKeyPress(event, 'upper-body-items')" onfocus="playAudioAndStopOthers('audio3')">
+            onkeypress="handleKeyPress(event, 'upper-body-items')" onfocus="playAudioAndStopOthersOnFocus('audio3')"
+            onblur="stopAudio()">
         </h2>
 
         <ul id="upper-body-items" role="presentation">
-            <li><button onfocus="playAudioAndStopOthers('audio1')" onblur="stopAudio()"></button>
+            <li><button onfocus="playAudioAndStopOthersOnFocus('audio1')" onblur="stopAudio()"></button>
             </li>
             <li><button aria-label="Blauwe Trui">Blauwe Trui</button></li>
             <li><button aria-label="Groene Jas">Groene Jas</button></li>
@@ -99,7 +100,9 @@
     <!-- Onderlichaamsectie -->
     <section>
         <h2 class="button" role="button" tabindex="0" onclick="toggleVisibility('lower-body-items')"
-            onkeypress="handleKeyPress(event, 'lower-body-items')" onfocus="playAudioAndStopOthers('audio4')"></h2>
+            onkeypress="handleKeyPress(event, 'lower-body-items')" onfocus="playAudioAndStopOthersOnFocus('audio4')"
+            onblur="stopAudio()">
+        </h2>
         <ul id="lower-body-items" aria-label="Items voor onderlichaam">
             <li><button aria-label="Zwarte Broek">Zwarte
                     Broek</button></li>
@@ -112,7 +115,8 @@
     <!-- Ondergoedsectie -->
     <section>
         <h2 class="button" role="button" tabindex="0" onclick="toggleVisibility('underwear-items')"
-            onkeypress="handleKeyPress(event, 'underwear-items')" onfocus="playAudioAndStopOthers('audio2')">
+            onkeypress="handleKeyPress(event, 'underwear-items')" onfocus="playAudioAndStopOthersOnFocus('audio2')"
+            onblur="stopAudio()">
         </h2>
         <ul id="underwear-items" aria-label="Ondergoed items">
             <li><button aria-label="Paarse Boxers">Paarse Boxers</button></li>
@@ -177,7 +181,7 @@
             }
         }
 
-        function playAudioAndStopOthers(audioId) {
+        function playAudioAndStopOthersOnFocus(audioId) {
             if (activeAudio) {
                 stopAudio();
             }
